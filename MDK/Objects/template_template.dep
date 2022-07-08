@@ -1,0 +1,221 @@
+Dependencies for Project 'template', Target 'template': (DO NOT MODIFY !)
+F (..\USER\src\main.c)(0x6296133B)(--c99 --gnu -c --cpu Cortex-M4.fp -g -O3 --apcs=interwork --split_sections -I ..\BSP\inc -I ..\Core\cm4\core_support -I ..\Core\cm4\device_support -I ..\USER\inc-I.\RTE\_template-ID:\keil\ArteryTek\AT32F403A_407_DFP\2.0.2\Device\Include-ID:\keil\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DAT32F403AVGT7-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+I (..\USER\inc\at32f403a_407_clock.h)(0x62675BB2)
+I (..\Core\cm4\device_support\at32f403a_407.h)(0x62675915)
+I (..\Core\cm4\core_support\core_cm4.h)(0x626758C1)
+I (D:\keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
+I (..\Core\cm4\core_support\cmsis_version.h)(0x626758C1)
+I (..\Core\cm4\core_support\cmsis_compiler.h)(0x626758C1)
+I (..\Core\cm4\core_support\cmsis_armcc.h)(0x626758C1)
+I (..\Core\cm4\core_support\mpu_armv7.h)(0x626758C1)
+I (..\Core\cm4\device_support\system_at32f403a_407.h)(0x62675917)
+I (..\BSP\inc\at32f403a_407_def.h)(0x62675920)
+I (..\USER\inc\at32f403a_407_conf.h)(0x62675BB2)
+I (..\BSP\inc\at32f403a_407_crm.h)(0x6267591F)
+I (..\BSP\inc\at32f403a_407_tmr.h)(0x62675928)
+I (..\BSP\inc\at32f403a_407_rtc.h)(0x62675926)
+I (..\BSP\inc\at32f403a_407_bpr.h)(0x6267591D)
+I (..\BSP\inc\at32f403a_407_gpio.h)(0x62675924)
+I (..\BSP\inc\at32f403a_407_i2c.h)(0x62675924)
+I (..\BSP\inc\at32f403a_407_usart.h)(0x62675929)
+I (..\BSP\inc\at32f403a_407_pwc.h)(0x62675926)
+I (..\BSP\inc\at32f403a_407_can.h)(0x6267591D)
+I (..\BSP\inc\at32f403a_407_adc.h)(0x6267591C)
+I (..\BSP\inc\at32f403a_407_dac.h)(0x6267591F)
+I (..\BSP\inc\at32f403a_407_spi.h)(0x62675928)
+I (..\BSP\inc\at32f403a_407_dma.h)(0x62675921)
+I (..\BSP\inc\at32f403a_407_debug.h)(0x62675920)
+I (..\BSP\inc\at32f403a_407_flash.h)(0x62675923)
+I (..\BSP\inc\at32f403a_407_crc.h)(0x6267591E)
+I (..\BSP\inc\at32f403a_407_wwdt.h)(0x6267592B)
+I (..\BSP\inc\at32f403a_407_wdt.h)(0x6267592A)
+I (..\BSP\inc\at32f403a_407_exint.h)(0x62675922)
+I (..\BSP\inc\at32f403a_407_sdio.h)(0x62675927)
+I (..\BSP\inc\at32f403a_407_xmc.h)(0x6267592C)
+I (..\BSP\inc\at32f403a_407_acc.h)(0x6267591B)
+I (..\BSP\inc\at32f403a_407_misc.h)(0x62675925)
+I (..\BSP\inc\at32f403a_407_usb.h)(0x6267592A)
+I (..\BSP\inc\at32f403a_407_emac.h)(0x62675922)
+F (..\USER\src\at32f403a_407_clock.c)(0x62675BB4)(--c99 --gnu -c --cpu Cortex-M4.fp -g -O3 --apcs=interwork --split_sections -I ..\BSP\inc -I ..\Core\cm4\core_support -I ..\Core\cm4\device_support -I ..\USER\inc-I.\RTE\_template-ID:\keil\ArteryTek\AT32F403A_407_DFP\2.0.2\Device\Include-ID:\keil\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DAT32F403AVGT7-o .\objects\at32f403a_407_clock.o --omf_browse .\objects\at32f403a_407_clock.crf --depend .\objects\at32f403a_407_clock.d)
+I (..\USER\inc\at32f403a_407_clock.h)(0x62675BB2)
+I (..\Core\cm4\device_support\at32f403a_407.h)(0x62675915)
+I (..\Core\cm4\core_support\core_cm4.h)(0x626758C1)
+I (D:\keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
+I (..\Core\cm4\core_support\cmsis_version.h)(0x626758C1)
+I (..\Core\cm4\core_support\cmsis_compiler.h)(0x626758C1)
+I (..\Core\cm4\core_support\cmsis_armcc.h)(0x626758C1)
+I (..\Core\cm4\core_support\mpu_armv7.h)(0x626758C1)
+I (..\Core\cm4\device_support\system_at32f403a_407.h)(0x62675917)
+I (..\BSP\inc\at32f403a_407_def.h)(0x62675920)
+I (..\USER\inc\at32f403a_407_conf.h)(0x62675BB2)
+I (..\BSP\inc\at32f403a_407_crm.h)(0x6267591F)
+I (..\BSP\inc\at32f403a_407_tmr.h)(0x62675928)
+I (..\BSP\inc\at32f403a_407_rtc.h)(0x62675926)
+I (..\BSP\inc\at32f403a_407_bpr.h)(0x6267591D)
+I (..\BSP\inc\at32f403a_407_gpio.h)(0x62675924)
+I (..\BSP\inc\at32f403a_407_i2c.h)(0x62675924)
+I (..\BSP\inc\at32f403a_407_usart.h)(0x62675929)
+I (..\BSP\inc\at32f403a_407_pwc.h)(0x62675926)
+I (..\BSP\inc\at32f403a_407_can.h)(0x6267591D)
+I (..\BSP\inc\at32f403a_407_adc.h)(0x6267591C)
+I (..\BSP\inc\at32f403a_407_dac.h)(0x6267591F)
+I (..\BSP\inc\at32f403a_407_spi.h)(0x62675928)
+I (..\BSP\inc\at32f403a_407_dma.h)(0x62675921)
+I (..\BSP\inc\at32f403a_407_debug.h)(0x62675920)
+I (..\BSP\inc\at32f403a_407_flash.h)(0x62675923)
+I (..\BSP\inc\at32f403a_407_crc.h)(0x6267591E)
+I (..\BSP\inc\at32f403a_407_wwdt.h)(0x6267592B)
+I (..\BSP\inc\at32f403a_407_wdt.h)(0x6267592A)
+I (..\BSP\inc\at32f403a_407_exint.h)(0x62675922)
+I (..\BSP\inc\at32f403a_407_sdio.h)(0x62675927)
+I (..\BSP\inc\at32f403a_407_xmc.h)(0x6267592C)
+I (..\BSP\inc\at32f403a_407_acc.h)(0x6267591B)
+I (..\BSP\inc\at32f403a_407_misc.h)(0x62675925)
+I (..\BSP\inc\at32f403a_407_usb.h)(0x6267592A)
+I (..\BSP\inc\at32f403a_407_emac.h)(0x62675922)
+F (..\USER\src\at32f403a_407_int.c)(0x629612E5)(--c99 --gnu -c --cpu Cortex-M4.fp -g -O3 --apcs=interwork --split_sections -I ..\BSP\inc -I ..\Core\cm4\core_support -I ..\Core\cm4\device_support -I ..\USER\inc-I.\RTE\_template-ID:\keil\ArteryTek\AT32F403A_407_DFP\2.0.2\Device\Include-ID:\keil\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DAT32F403AVGT7-o .\objects\at32f403a_407_int.o --omf_browse .\objects\at32f403a_407_int.crf --depend .\objects\at32f403a_407_int.d)
+I (..\USER\inc\at32f403a_407_int.h)(0x62675BB3)
+I (..\Core\cm4\device_support\at32f403a_407.h)(0x62675915)
+I (..\Core\cm4\core_support\core_cm4.h)(0x626758C1)
+I (D:\keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
+I (..\Core\cm4\core_support\cmsis_version.h)(0x626758C1)
+I (..\Core\cm4\core_support\cmsis_compiler.h)(0x626758C1)
+I (..\Core\cm4\core_support\cmsis_armcc.h)(0x626758C1)
+I (..\Core\cm4\core_support\mpu_armv7.h)(0x626758C1)
+I (..\Core\cm4\device_support\system_at32f403a_407.h)(0x62675917)
+I (..\BSP\inc\at32f403a_407_def.h)(0x62675920)
+I (..\USER\inc\at32f403a_407_conf.h)(0x62675BB2)
+I (..\BSP\inc\at32f403a_407_crm.h)(0x6267591F)
+I (..\BSP\inc\at32f403a_407_tmr.h)(0x62675928)
+I (..\BSP\inc\at32f403a_407_rtc.h)(0x62675926)
+I (..\BSP\inc\at32f403a_407_bpr.h)(0x6267591D)
+I (..\BSP\inc\at32f403a_407_gpio.h)(0x62675924)
+I (..\BSP\inc\at32f403a_407_i2c.h)(0x62675924)
+I (..\BSP\inc\at32f403a_407_usart.h)(0x62675929)
+I (..\BSP\inc\at32f403a_407_pwc.h)(0x62675926)
+I (..\BSP\inc\at32f403a_407_can.h)(0x6267591D)
+I (..\BSP\inc\at32f403a_407_adc.h)(0x6267591C)
+I (..\BSP\inc\at32f403a_407_dac.h)(0x6267591F)
+I (..\BSP\inc\at32f403a_407_spi.h)(0x62675928)
+I (..\BSP\inc\at32f403a_407_dma.h)(0x62675921)
+I (..\BSP\inc\at32f403a_407_debug.h)(0x62675920)
+I (..\BSP\inc\at32f403a_407_flash.h)(0x62675923)
+I (..\BSP\inc\at32f403a_407_crc.h)(0x6267591E)
+I (..\BSP\inc\at32f403a_407_wwdt.h)(0x6267592B)
+I (..\BSP\inc\at32f403a_407_wdt.h)(0x6267592A)
+I (..\BSP\inc\at32f403a_407_exint.h)(0x62675922)
+I (..\BSP\inc\at32f403a_407_sdio.h)(0x62675927)
+I (..\BSP\inc\at32f403a_407_xmc.h)(0x6267592C)
+I (..\BSP\inc\at32f403a_407_acc.h)(0x6267591B)
+I (..\BSP\inc\at32f403a_407_misc.h)(0x62675925)
+I (..\BSP\inc\at32f403a_407_usb.h)(0x6267592A)
+I (..\BSP\inc\at32f403a_407_emac.h)(0x62675922)
+F (..\BSP\src\at32f403a_407_crm.c)(0x6267592F)(--c99 --gnu -c --cpu Cortex-M4.fp -g -O3 --apcs=interwork --split_sections -I ..\BSP\inc -I ..\Core\cm4\core_support -I ..\Core\cm4\device_support -I ..\USER\inc-I.\RTE\_template-ID:\keil\ArteryTek\AT32F403A_407_DFP\2.0.2\Device\Include-ID:\keil\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DAT32F403AVGT7-o .\objects\at32f403a_407_crm.o --omf_browse .\objects\at32f403a_407_crm.crf --depend .\objects\at32f403a_407_crm.d)
+I (..\USER\inc\at32f403a_407_conf.h)(0x62675BB2)
+I (..\BSP\inc\at32f403a_407_crm.h)(0x6267591F)
+I (..\Core\cm4\device_support\at32f403a_407.h)(0x62675915)
+I (..\Core\cm4\core_support\core_cm4.h)(0x626758C1)
+I (D:\keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
+I (..\Core\cm4\core_support\cmsis_version.h)(0x626758C1)
+I (..\Core\cm4\core_support\cmsis_compiler.h)(0x626758C1)
+I (..\Core\cm4\core_support\cmsis_armcc.h)(0x626758C1)
+I (..\Core\cm4\core_support\mpu_armv7.h)(0x626758C1)
+I (..\Core\cm4\device_support\system_at32f403a_407.h)(0x62675917)
+I (..\BSP\inc\at32f403a_407_def.h)(0x62675920)
+I (..\BSP\inc\at32f403a_407_tmr.h)(0x62675928)
+I (..\BSP\inc\at32f403a_407_rtc.h)(0x62675926)
+I (..\BSP\inc\at32f403a_407_bpr.h)(0x6267591D)
+I (..\BSP\inc\at32f403a_407_gpio.h)(0x62675924)
+I (..\BSP\inc\at32f403a_407_i2c.h)(0x62675924)
+I (..\BSP\inc\at32f403a_407_usart.h)(0x62675929)
+I (..\BSP\inc\at32f403a_407_pwc.h)(0x62675926)
+I (..\BSP\inc\at32f403a_407_can.h)(0x6267591D)
+I (..\BSP\inc\at32f403a_407_adc.h)(0x6267591C)
+I (..\BSP\inc\at32f403a_407_dac.h)(0x6267591F)
+I (..\BSP\inc\at32f403a_407_spi.h)(0x62675928)
+I (..\BSP\inc\at32f403a_407_dma.h)(0x62675921)
+I (..\BSP\inc\at32f403a_407_debug.h)(0x62675920)
+I (..\BSP\inc\at32f403a_407_flash.h)(0x62675923)
+I (..\BSP\inc\at32f403a_407_crc.h)(0x6267591E)
+I (..\BSP\inc\at32f403a_407_wwdt.h)(0x6267592B)
+I (..\BSP\inc\at32f403a_407_wdt.h)(0x6267592A)
+I (..\BSP\inc\at32f403a_407_exint.h)(0x62675922)
+I (..\BSP\inc\at32f403a_407_sdio.h)(0x62675927)
+I (..\BSP\inc\at32f403a_407_xmc.h)(0x6267592C)
+I (..\BSP\inc\at32f403a_407_acc.h)(0x6267591B)
+I (..\BSP\inc\at32f403a_407_misc.h)(0x62675925)
+I (..\BSP\inc\at32f403a_407_usb.h)(0x6267592A)
+I (..\BSP\inc\at32f403a_407_emac.h)(0x62675922)
+F (..\BSP\src\at32f403a_407_misc.c)(0x62675935)(--c99 --gnu -c --cpu Cortex-M4.fp -g -O3 --apcs=interwork --split_sections -I ..\BSP\inc -I ..\Core\cm4\core_support -I ..\Core\cm4\device_support -I ..\USER\inc-I.\RTE\_template-ID:\keil\ArteryTek\AT32F403A_407_DFP\2.0.2\Device\Include-ID:\keil\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DAT32F403AVGT7-o .\objects\at32f403a_407_misc.o --omf_browse .\objects\at32f403a_407_misc.crf --depend .\objects\at32f403a_407_misc.d)
+I (..\USER\inc\at32f403a_407_conf.h)(0x62675BB2)
+I (..\BSP\inc\at32f403a_407_crm.h)(0x6267591F)
+I (..\Core\cm4\device_support\at32f403a_407.h)(0x62675915)
+I (..\Core\cm4\core_support\core_cm4.h)(0x626758C1)
+I (D:\keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
+I (..\Core\cm4\core_support\cmsis_version.h)(0x626758C1)
+I (..\Core\cm4\core_support\cmsis_compiler.h)(0x626758C1)
+I (..\Core\cm4\core_support\cmsis_armcc.h)(0x626758C1)
+I (..\Core\cm4\core_support\mpu_armv7.h)(0x626758C1)
+I (..\Core\cm4\device_support\system_at32f403a_407.h)(0x62675917)
+I (..\BSP\inc\at32f403a_407_def.h)(0x62675920)
+I (..\BSP\inc\at32f403a_407_tmr.h)(0x62675928)
+I (..\BSP\inc\at32f403a_407_rtc.h)(0x62675926)
+I (..\BSP\inc\at32f403a_407_bpr.h)(0x6267591D)
+I (..\BSP\inc\at32f403a_407_gpio.h)(0x62675924)
+I (..\BSP\inc\at32f403a_407_i2c.h)(0x62675924)
+I (..\BSP\inc\at32f403a_407_usart.h)(0x62675929)
+I (..\BSP\inc\at32f403a_407_pwc.h)(0x62675926)
+I (..\BSP\inc\at32f403a_407_can.h)(0x6267591D)
+I (..\BSP\inc\at32f403a_407_adc.h)(0x6267591C)
+I (..\BSP\inc\at32f403a_407_dac.h)(0x6267591F)
+I (..\BSP\inc\at32f403a_407_spi.h)(0x62675928)
+I (..\BSP\inc\at32f403a_407_dma.h)(0x62675921)
+I (..\BSP\inc\at32f403a_407_debug.h)(0x62675920)
+I (..\BSP\inc\at32f403a_407_flash.h)(0x62675923)
+I (..\BSP\inc\at32f403a_407_crc.h)(0x6267591E)
+I (..\BSP\inc\at32f403a_407_wwdt.h)(0x6267592B)
+I (..\BSP\inc\at32f403a_407_wdt.h)(0x6267592A)
+I (..\BSP\inc\at32f403a_407_exint.h)(0x62675922)
+I (..\BSP\inc\at32f403a_407_sdio.h)(0x62675927)
+I (..\BSP\inc\at32f403a_407_xmc.h)(0x6267592C)
+I (..\BSP\inc\at32f403a_407_acc.h)(0x6267591B)
+I (..\BSP\inc\at32f403a_407_misc.h)(0x62675925)
+I (..\BSP\inc\at32f403a_407_usb.h)(0x6267592A)
+I (..\BSP\inc\at32f403a_407_emac.h)(0x62675922)
+F (..\Core\cm4\device_support\startup_at32f403a_407.s)(0x62675F14)(--cpu Cortex-M4.fp -g --apcs=interwork -I.\RTE\_template-ID:\keil\ArteryTek\AT32F403A_407_DFP\2.0.2\Device\Include-ID:\keil\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 525" --pd "AT32F403AVGT7 SETA 1"--list .\listings\startup_at32f403a_407.lst --xref -o .\objects\startup_at32f403a_407.o --depend .\objects\startup_at32f403a_407.d)
+F (..\Core\cm4\device_support\system_at32f403a_407.c)(0x62675917)(--c99 --gnu -c --cpu Cortex-M4.fp -g -O3 --apcs=interwork --split_sections -I ..\BSP\inc -I ..\Core\cm4\core_support -I ..\Core\cm4\device_support -I ..\USER\inc-I.\RTE\_template-ID:\keil\ArteryTek\AT32F403A_407_DFP\2.0.2\Device\Include-ID:\keil\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DAT32F403AVGT7-o .\objects\system_at32f403a_407.o --omf_browse .\objects\system_at32f403a_407.crf --depend .\objects\system_at32f403a_407.d)
+I (..\Core\cm4\device_support\at32f403a_407.h)(0x62675915)
+I (..\Core\cm4\core_support\core_cm4.h)(0x626758C1)
+I (D:\keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
+I (..\Core\cm4\core_support\cmsis_version.h)(0x626758C1)
+I (..\Core\cm4\core_support\cmsis_compiler.h)(0x626758C1)
+I (..\Core\cm4\core_support\cmsis_armcc.h)(0x626758C1)
+I (..\Core\cm4\core_support\mpu_armv7.h)(0x626758C1)
+I (..\Core\cm4\device_support\system_at32f403a_407.h)(0x62675917)
+I (..\BSP\inc\at32f403a_407_def.h)(0x62675920)
+I (..\USER\inc\at32f403a_407_conf.h)(0x62675BB2)
+I (..\BSP\inc\at32f403a_407_crm.h)(0x6267591F)
+I (..\BSP\inc\at32f403a_407_tmr.h)(0x62675928)
+I (..\BSP\inc\at32f403a_407_rtc.h)(0x62675926)
+I (..\BSP\inc\at32f403a_407_bpr.h)(0x6267591D)
+I (..\BSP\inc\at32f403a_407_gpio.h)(0x62675924)
+I (..\BSP\inc\at32f403a_407_i2c.h)(0x62675924)
+I (..\BSP\inc\at32f403a_407_usart.h)(0x62675929)
+I (..\BSP\inc\at32f403a_407_pwc.h)(0x62675926)
+I (..\BSP\inc\at32f403a_407_can.h)(0x6267591D)
+I (..\BSP\inc\at32f403a_407_adc.h)(0x6267591C)
+I (..\BSP\inc\at32f403a_407_dac.h)(0x6267591F)
+I (..\BSP\inc\at32f403a_407_spi.h)(0x62675928)
+I (..\BSP\inc\at32f403a_407_dma.h)(0x62675921)
+I (..\BSP\inc\at32f403a_407_debug.h)(0x62675920)
+I (..\BSP\inc\at32f403a_407_flash.h)(0x62675923)
+I (..\BSP\inc\at32f403a_407_crc.h)(0x6267591E)
+I (..\BSP\inc\at32f403a_407_wwdt.h)(0x6267592B)
+I (..\BSP\inc\at32f403a_407_wdt.h)(0x6267592A)
+I (..\BSP\inc\at32f403a_407_exint.h)(0x62675922)
+I (..\BSP\inc\at32f403a_407_sdio.h)(0x62675927)
+I (..\BSP\inc\at32f403a_407_xmc.h)(0x6267592C)
+I (..\BSP\inc\at32f403a_407_acc.h)(0x6267591B)
+I (..\BSP\inc\at32f403a_407_misc.h)(0x62675925)
+I (..\BSP\inc\at32f403a_407_usb.h)(0x6267592A)
+I (..\BSP\inc\at32f403a_407_emac.h)(0x62675922)
