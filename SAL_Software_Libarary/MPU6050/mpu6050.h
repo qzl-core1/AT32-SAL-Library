@@ -2,10 +2,10 @@
 #define __MPU6050_H
 #include "SAL.h"
 
-class MPU6050
+class mpu6050
 {
     public:
-        MPU6050(SAL_I2C* hi2c,uint16_t rate);
+        mpu6050(SAL_I2C* hi2c,uint16_t rate);
         void begin();
         void get_Angle(float *x, float *y);
     private:

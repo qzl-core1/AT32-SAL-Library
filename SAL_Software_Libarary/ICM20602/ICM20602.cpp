@@ -69,14 +69,14 @@
 #define ICM20602_ZA_OFFSET_H        (0x7D)
 #define ICM20602_ZA_OFFSET_L        (0x7E)
 
-ICM20602::ICM20602(SAL_SPI* hspi,Pin_TypeDef pin,int16_t set_freq)
+icm20602::icm20602(SAL_SPI* hspi,Pin_TypeDef pin,int16_t set_freq)
 {
     spi = hspi;
     cs = pin;
     freq = set_freq;
 }
 
-void ICM20602::begin()
+void icm20602::begin()
 {
     /* 初始化片选 */
     SAL_GPIO_Init(this->cs,OUTPUT,PULL_UP);
@@ -88,7 +88,7 @@ void ICM20602::begin()
     icm20602_get_offset();
 }
 
-uint8_t ICM20602::icm20602_read_register(uint8_t reg)
+uint8_t icm20602::icm20602_read_register(uint8_t reg)
 {
     uint8_t data = 0;
     SAL_GPIO_Write_Pin(cs, 0);
@@ -97,21 +97,21 @@ uint8_t ICM20602::icm20602_read_register(uint8_t reg)
     return data;
 }
 
-void ICM20602::icm20602_read_registers(uint8_t reg, uint8_t *data, uint32_t len)
+void icm20602::icm20602_read_registers(uint8_t reg, uint8_t *data, uint32_t len)
 {
     SAL_GPIO_Write_Pin(cs, 0);
     spi->read(reg | ICM20602_SPI_R, len, data);
     SAL_GPIO_Write_Pin(cs, 1);
 }
 
-void ICM20602::icm20602_write_register(uint8_t reg, uint8_t data)
+void icm20602::icm20602_write_register(uint8_t reg, uint8_t data)
 {
     SAL_GPIO_Write_Pin(cs, 0);
     spi->write_regist(reg | ICM20602_SPI_W, data);
     SAL_GPIO_Write_Pin(cs, 1);
 }
 
-uint8_t ICM20602::icm20602_self_check(void)
+uint8_t icm20602::icm20602_self_check(void)
 {
     uint8_t dat = 0, return_state = 0;
     uint8_t timeout_count = 0;
@@ -131,7 +131,7 @@ uint8_t ICM20602::icm20602_self_check(void)
     return return_state;
 }
 
-uint8_t ICM20602::icm20602_init(void)
+uint8_t icm20602::icm20602_init(void)
 {
     uint8_t val = 0x0, return_state = 0;
     uint16_t timeout_count = 0;
@@ -140,8 +140,7 @@ uint8_t ICM20602::icm20602_init(void)
     {
         if (icm20602_self_check())
         {
-            // 那么就是 ICM20602 自检出错并超时退出了
-            // 检查一下接线有没有问题 如果没问题可能就是坏了
+            /* 设备ID读取失败,请检查接线,或者检查ICM20602好坏 */
             return_state = 1;
             break;
         }
@@ -149,14 +148,13 @@ uint8_t ICM20602::icm20602_init(void)
         icm20602_write_register(ICM20602_PWR_MGMT_1, 0x80);                     // 复位设备
         SAL_Delay(2);
 
+        
         do                                                                      // 等待复位成功
         {
             val = icm20602_read_register(ICM20602_PWR_MGMT_1);
             if (timeout_count ++ > 250)
             {
-                // 如果程序在输出了断言信息 并且提示出错位置在这里
-                // 那么就是 ICM20602 自检出错并超时退出了
-                // 检查一下接线有没有问题 如果没问题可能就是坏了
+
                 SAL_USART1.printf("icm20602 reset error\r\n");
                 return_state = 1;
                 break;
@@ -165,7 +163,7 @@ uint8_t ICM20602::icm20602_init(void)
         while (0x41 != val);
         if (1 == return_state)
             break;
-        icm20602_write_register(ICM20602_INT_ENABLE,0x00);   //关闭中断使能,待测试
+        icm20602_write_register(ICM20602_INT_ENABLE,0x00);  //关闭中断使能,待测试
         icm20602_write_register(ICM20602_FIFO_EN,0x00);   //关闭FIFO
         icm20602_write_register(ICM20602_INT_PIN_CFG, 0x80);     // 设置INT引脚为低电平有效，开漏输出
         icm20602_write_register(ICM20602_PWR_MGMT_1,     0x01);                 // 时钟设置
@@ -192,7 +190,7 @@ uint8_t ICM20602::icm20602_init(void)
 }
 
 /* 获取零漂 */
-void ICM20602::icm20602_get_offset(void)
+void icm20602::icm20602_get_offset(void)
 {
     this->gyro_offset_x = 0;
     this->gyro_offset_y = 0;
@@ -211,7 +209,7 @@ void ICM20602::icm20602_get_offset(void)
 }
 
 /* 获取加速度 */
-void ICM20602::icm20602_get_acc(void)
+void icm20602::icm20602_get_acc(void)
 {
     uint8_t dat[6];
 
@@ -228,7 +226,7 @@ void ICM20602::icm20602_get_acc(void)
 }
 
 /* 获取陀螺仪 */
-void ICM20602::icm20602_get_gyro(void)
+void icm20602::icm20602_get_gyro(void)
 {
     uint8_t dat[6];
 
@@ -248,7 +246,7 @@ void ICM20602::icm20602_get_gyro(void)
 }
 
 /* x轴卡尔曼滤波 */
-float ICM20602::Kalman_Filter_x(float Accel, float Gyro)
+float icm20602::Kalman_Filter_x(float Accel, float Gyro)
 {
 //    static float angle_dot;
     static float angle;
@@ -297,7 +295,7 @@ float ICM20602::Kalman_Filter_x(float Accel, float Gyro)
     return angle;
 }
 
-float ICM20602::Kalman_Filter_y(float Accel, float Gyro)
+float icm20602::Kalman_Filter_y(float Accel, float Gyro)
 {
 //    static float angle_dot;
     static float angle;
@@ -344,13 +342,73 @@ float ICM20602::Kalman_Filter_y(float Accel, float Gyro)
     return angle;
 }
 
-void ICM20602::get_Angle(float *x, float *y)
+float icm20602::Kalman_Filter_z(float Accel, float Gyro)
+{
+//    static float angle_dot;
+    static float angle;
+    float dt = 1.0f / ((float)this->freq);   //每5ms进行一次滤波
+    float Q_angle = 0.001; // 过程噪声的协方差
+    float Q_gyro = 0.003; //0.003 过程噪声的协方差 过程噪声的协方差为一个一行两列矩阵
+    float R_angle = 0.5;    // 测量噪声的协方差 既测量偏差
+    char  C_0 = 1;
+    static float Q_bias, Angle_err;
+    static float PCt_0, PCt_1, E;
+    static float K_0, K_1, t_0, t_1;
+    static float Pdot[4] = {0, 0, 0, 0};
+    static float PP[2][2] = { { 1, 0 }, { 0, 1 } };
+    angle += (Gyro - Q_bias) * dt; //先验估计
+    Pdot[0] = Q_angle - PP[0][1] - PP[1][0]; // Pk-先验估计误差协方差的微分
+    Pdot[1] = -PP[1][1];
+    Pdot[2] = -PP[1][1];
+    Pdot[3] = Q_gyro;
+    PP[0][0] += Pdot[0] * dt;   // Pk-先验估计误差协方差微分的积分
+    PP[0][1] += Pdot[1] * dt;   // =先验估计误差协方差
+    PP[1][0] += Pdot[2] * dt;
+    PP[1][1] += Pdot[3] * dt;
+    Angle_err = Accel - angle;  //zk-先验估计
+
+    PCt_0 = C_0 * PP[0][0];
+    PCt_1 = C_0 * PP[1][0];
+
+    E = R_angle + C_0 * PCt_0;
+
+    K_0 = PCt_0 / E;
+    K_1 = PCt_1 / E;
+
+    t_0 = PCt_0;
+    t_1 = C_0 * PP[0][1];
+
+    PP[0][0] -= K_0 * t_0;       //后验估计误差协方差
+    PP[0][1] -= K_0 * t_1;
+    PP[1][0] -= K_1 * t_0;
+    PP[1][1] -= K_1 * t_1;
+
+    angle   += K_0 * Angle_err;    //后验估计
+    Q_bias  += K_1 * Angle_err;  //后验估计
+//    angle_dot   = Gyro - Q_bias;    //输出值(后验估计)的微分=角速度
+    return angle;
+}
+
+void icm20602::get_Angle(float *x, float *y)
 {
     icm20602_get_acc();
     icm20602_get_gyro();
     Accel_Angle_x = atan2(acc_y, acc_z) * 180.0f / PI;
     Accel_Angle_y = atan2(acc_x, acc_z) * 180.0f / PI;
+    Accel_Angle_z = atan2(acc_x, acc_y) * 180.0f / PI;
     *x = Kalman_Filter_x(Accel_Angle_x,gyro_x);
     *y = Kalman_Filter_y(Accel_Angle_y,gyro_y);
+}
+
+void icm20602::get_Angle(float *x, float *y, float *z)
+{
+    icm20602_get_acc();
+    icm20602_get_gyro();
+    Accel_Angle_x = atan2(acc_y, acc_z) * 180.0f / PI;
+    Accel_Angle_y = atan2(acc_x, acc_z) * 180.0f / PI;
+    Accel_Angle_z = atan2(acc_x, acc_y) * 180.0f / PI;
+    *x = Kalman_Filter_x(Accel_Angle_x,gyro_x);
+    *y = Kalman_Filter_y(Accel_Angle_y,gyro_y);
+    *z = Kalman_Filter_z(Accel_Angle_z,gyro_z);
 }
 

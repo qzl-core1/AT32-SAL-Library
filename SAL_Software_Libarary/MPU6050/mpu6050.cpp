@@ -18,13 +18,13 @@
 
 #define MPU6050_RA_TEMP_OUT_H       0x41     //温度输出高位寄存器
 
-MPU6050::MPU6050(SAL_I2C *hi2c, uint16_t rate)
+mpu6050::mpu6050(SAL_I2C *hi2c, uint16_t rate)
 {
     this->i2c = hi2c;
     this->freq = rate;
 }
 /* x轴卡尔曼滤波 */
-float MPU6050::Kalman_Filter_x(float Accel, float Gyro)
+float mpu6050::Kalman_Filter_x(float Accel, float Gyro)
 {
 //    static float angle_dot;
     static float angle;
@@ -74,7 +74,7 @@ float MPU6050::Kalman_Filter_x(float Accel, float Gyro)
 }
 
 /* y轴卡尔曼滤波 */
-float MPU6050::Kalman_Filter_y(float Accel, float Gyro)
+float mpu6050::Kalman_Filter_y(float Accel, float Gyro)
 {
 //    static float angle_dot;
     static float angle;
@@ -122,20 +122,20 @@ float MPU6050::Kalman_Filter_y(float Accel, float Gyro)
 }
 
 /* 返回温度 */
-void MPU6050::returnTemp(float *Temperature)
+void mpu6050::returnTemp(float *Temperature)
 {
     short temp3;
     uint8_t buf[2];
-    SAL_I2C1.Read_Mem_Byte(MPU6050_ADDR, MPU6050_RA_TEMP_OUT_H, 2, buf);
+    i2c->Read_Mem_Byte(MPU6050_ADDR, MPU6050_RA_TEMP_OUT_H, 2, buf);
     temp3 = (buf[0] << 8) | buf[1];
     *Temperature = ((double) temp3 / 340.0) + 36.53;
 }
 
 /* 读取角速度 */
-void MPU6050::readGyro(short *gyroData)
+void mpu6050::readGyro(short *gyroData)
 {
     uint8_t buf[6];
-    SAL_I2C1.Read_Mem_Byte(MPU6050_ADDR, MPU6050_GYRO_OUT, 6, buf);
+    i2c->Read_Mem_Byte(MPU6050_ADDR, MPU6050_GYRO_OUT, 6, buf);
     gyroData[0] = (buf[0] << 8) | buf[1];
     gyroData[1] = (buf[2] << 8) | buf[3];
     gyroData[2] = (buf[4] << 8) | buf[5];
@@ -143,10 +143,10 @@ void MPU6050::readGyro(short *gyroData)
 
 
 /* 读取加速度 */
-void MPU6050::readAcc(short *accData)
+void mpu6050::readAcc(short *accData)
 {
     uint8_t buf[6];
-    SAL_I2C1.Read_Mem_Byte(MPU6050_ADDR, MPU6050_ACC_OUT, 6, buf);
+    i2c->Read_Mem_Byte(MPU6050_ADDR, MPU6050_ACC_OUT, 6, buf);
     accData[0] = (buf[0] << 8) | buf[1];
     accData[1] = (buf[2] << 8) | buf[3];
     accData[2] = (buf[4] << 8) | buf[5];
@@ -154,7 +154,7 @@ void MPU6050::readAcc(short *accData)
 
 
 /* 获取角度 */
-void MPU6050::get_Angle(float *x, float *y)
+void mpu6050::get_Angle(float *x, float *y)
 {
     float Accel_Y, Accel_Z, Accel_X, Accel_Angle_x, Accel_Angle_y, Gyro_X, Gyro_Z, Gyro_Y;
     float Temperature;
@@ -183,7 +183,7 @@ void MPU6050::get_Angle(float *x, float *y)
     *y = -Kalman_Filter_y(Accel_Angle_y, Gyro_Y);//更新平衡倾角
 }
 
-void MPU6050::set_lpf(uint16_t lpf)
+void mpu6050::set_lpf(uint16_t lpf)
 {
     uint8_t data = 0;
     if (lpf >= 188)data = 1;
@@ -192,29 +192,29 @@ void MPU6050::set_lpf(uint16_t lpf)
     else if (lpf >= 20)data = 4;
     else if (lpf >= 10)data = 5;
     else data = 6;
-    (this->i2c)->Write_Mem_one_Byte(MPU6050_ADDR, MPU6050_RA_CONFIG, data);
+    i2c->Write_Mem_one_Byte(MPU6050_ADDR, MPU6050_RA_CONFIG, data);
 }
 
-void MPU6050::set_rate(uint16_t rate)
+void mpu6050::set_rate(uint16_t rate)
 {
     uint8_t data;
     if (rate > 1000)rate = 1000;
     if (rate < 4)rate = 4;
     data = 1000 / rate - 1;
-    (this->i2c)->Write_Mem_one_Byte(MPU6050_ADDR, MPU6050_RA_SMPLRT_DIV, data); //值得设置,设置频率
-    this->set_lpf(data / 2);
+    i2c->Write_Mem_one_Byte(MPU6050_ADDR, MPU6050_RA_SMPLRT_DIV, data); //值得设置,设置频率
+    set_lpf(data / 2);
 }
 
-void MPU6050::begin()
+void mpu6050::begin()
 {
     int i = 0, j = 0;
     for (i = 0; i < 1000; i++)
     {
         for (j = 0; j < 1000; j++);
     }
-    (this->i2c)->Write_Mem_one_Byte(MPU6050_ADDR, MPU6050_RA_PWR_MGMT_1, 0x01);
-     this->set_rate(freq);
-    (this->i2c)->Write_Mem_one_Byte(MPU6050_ADDR, MPU_INT_EN_REG, 0x01);//中断使能
-    (this->i2c)->Write_Mem_one_Byte(MPU6050_ADDR, MPU6050_RA_ACCEL_CONFIG, 0x00); //加速度设置
-    (this->i2c)->Write_Mem_one_Byte(MPU6050_ADDR, MPU6050_RA_GYRO_CONFIG, 0x18);  //陀螺仪设置
+    i2c->Write_Mem_one_Byte(MPU6050_ADDR, MPU6050_RA_PWR_MGMT_1, 0x01);
+    set_rate(freq);
+    i2c->Write_Mem_one_Byte(MPU6050_ADDR, MPU_INT_EN_REG, 0x01);
+    i2c->Write_Mem_one_Byte(MPU6050_ADDR, MPU6050_RA_ACCEL_CONFIG, 0x00);
+    i2c->Write_Mem_one_Byte(MPU6050_ADDR, MPU6050_RA_GYRO_CONFIG, 0x18);
 }

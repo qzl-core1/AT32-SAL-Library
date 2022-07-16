@@ -50,3 +50,46 @@
 #### 开始做出调整
 
 - 为了加强SAL的移植性,开始做出隔离层,隔离层存在的意义在于对接底层代码和向上支持SAL库的库函数这样使得SAL的库函数只用直接依赖于隔离层.
+
+### 2022/7/11
+
+- 修复BUG
+  - 修复MPU6050驱动库中应用i2c地址默认为SAL_I2C1
+
+### 2022/7/13
+
+- 软件库增加成员:
+  - MT6816:14 bit 磁编码器,使用硬件spi
+
+- SAL标准软件库中的规范
+  - 所有文件中的英文必须小写
+  - 必须以类为基础
+  - 类名必须也是小写
+  - 带有begin接口,用于开启引脚
+
+### 2022、7、16
+
+- 修改文件目录结构
+
+  - Core:存放底层标准库,CMSIS的文件夹
+  - MDK-ARM:用于存放启动文件和MDK编译日志文件
+  - SAL:
+    - SAL_Driver_Libarary：存放和软件层对接的文件
+    - SAL_Middleware:存放底层接口,对接给Driver层
+
+  - SAL_Software_Library:存放SAL支持的软件
+  - USER:main.cpp和各种中断
+
+- SAL_Middleware:
+  - gpio.c:存放引脚初始化,引脚map数组
+  - delay.c:存放全局延迟函数
+  - exint.c:存放外部中断的相关函数
+  - pwm.c:存放pwm输出的函数
+  - timer.c:存放定时器初始化的相关函数
+
+- 文件依赖关系:
+  - pwm.c和timer.c还要exint.c都需要依赖gpio.c
+  - SAL_Driver层中SAL_SPI和SAL_USART都直接依赖底层库函数，目前还没有找到很好的解耦方式
+  - SAL.c依赖所有的SAL_Middleware文件
+
+- 全局中断分组统一为 0-3 的抢占优先级, 0 - 3 的响应优先级
